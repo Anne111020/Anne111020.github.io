@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/* Root */
+:root {
+  --container-height: 600px;
+  --contaier-width: 400px;
+  --header-height: 150px;
+}
+
+/* Tag Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', monospace;
+}
+html {
+  font-size: 20px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(167, 159, 150);
+}
+
+header {
+  width: 100%;
+  height: var(--header-height);
+  background-image: url('tdl_img/gra.jpg');
+  background-size: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Class Styles */
+.container {
+  background-color: antiquewhite;
+  width: var(--contaier-width);
+  height: var(--container-height);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 4px #000000;
+  color: #fff;
+}
+
+/* New To-DO */
+.new-todo {
+  width: 100%;
+  height: 50px;
+  padding: 0.25rem 0;
+}
+.new-todo form {
+  display: flex;
+  align-items: center;
+}
+.new-todo form input {
+  flex: 1;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-right: 0px;
+  outline: transparent;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+  color: #000000;
+}
+.new-todo form button {
+  width: 80px;
+  height: 40px;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: rgb(6, 153, 251);
+  border: none;
+  border-left: 0px;
+  cursor: pointer;
+}
+.new-todo form button:hover {
+  text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* To-Do List */
+#todos-list {
+  height: calc(var(--container-height) - var(--header-height));
+  background-color: #fff;
+  padding: 0.5rem;
+  border: 1px solid rgb(219, 219, 219);
+  overflow: scroll;
+  border-radius: 0 0 5px 5px;
+}
+
+#todos-list .todo {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 5px;
+}
+#todos-list .todo:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#todos-list .todo * {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+#todos-list .todo i {
+  font-size: 0.9rem;
+}
+#todos-list .todo p {
+  flex: 1;
+  word-break: break-all;
+}
+
+/* To-Do Controls */
+.checked {
+  text-decoration: line-through;
+  color: grey;
+}
+#todos-list .todo .bi-pencil-square {
+  color: rgb(31, 177, 48);
+  font-size: 1.5rem;
+}
+#todos-list .todo .bi-trash {
+  color: rgb(236, 82, 82);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Notification */
+.notification {
+  position: absolute;
+  width: calc(3 * var(--contaier-width) / 4);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  border-radius: 8px;
+  background-color: rgb(233, 81, 81);
+  top: 10px;
+  right: calc(-3 * var(--contaier-width) / 4);
+  color: #fff;
+  transition: 300ms right ease-in-out;
+}
+
+.notif-enter {
+  right: 10px;
+}
+
+
+/* Mobile Devices */
+@media only screen and (max-width: 600px) {
+  :root {
+      --container-height: auto;
+      --contaier-width: 100%;
+      --header-height: 120px;
+  }
+
+  body {
+      font-size: 16px;
+  }
+
+  .container {
+      width: 100%;
+      height: auto;
+  }
+
+  .header {
+      height: 80px;
+  }
+
+  .new-todo form input {
+      height: 30px;
+      font-size: 0.8rem;
+  }
+
+  .new-todo form button {
+      height: 30px;
+      font-size: 1rem;
+  }
+
+  #todos-list {
+      height: auto;
+  }
+}
+
+/* Tablets and Small Screens */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  :root {
+      --container-height: 600px;
+      --contaier-width: 80%;
+      --header-height: 130px;
+  }
+
+  body {
+      font-size: 18px;
+  }
+
+  .container {
+      width: var(--contaier-width);
+      height: var(--container-height);
+  }
+
+  .header {
+      height: 100px;
+  }
+
+  .new-todo form input {
+      height: 40px;
+      font-size: 1rem;
+  }
+
+  .new-todo form button {
+      height: 40px;
+      font-size: 1.2rem;
+  }
+
+  #todos-list {
+      height: calc(var(--container-height) - var(--header-height));
+  }
+}
